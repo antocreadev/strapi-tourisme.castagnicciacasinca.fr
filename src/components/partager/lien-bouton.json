@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_partager_lien_boutons",
+  "info": {
+    "displayName": "LienBouton"
+  },
+  "options": {},
+  "attributes": {
+    "Label": {
+      "type": "string"
+    },
+    "Lien": {
+      "type": "string"
+    },
+    "Couleur": {
+      "type": "customField",
+      "customField": "plugin::color-picker.color",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+    }
+  },
+  "config": {}
+}

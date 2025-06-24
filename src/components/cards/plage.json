@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_cards_plages",
+  "info": {
+    "displayName": "Plage"
+  },
+  "options": {},
+  "attributes": {
+    "Nom": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

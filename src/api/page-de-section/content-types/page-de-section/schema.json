@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "page_de_sections",
+  "info": {
+    "singularName": "page-de-section",
+    "pluralName": "page-de-sections",
+    "displayName": "Page de section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titre": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "LienVersLaPage": {
+      "type": "string"
+    },
+    "seo": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::seo.seo"
+    }
+  }
+}

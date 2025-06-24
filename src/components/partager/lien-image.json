@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_partager_lien_images",
+  "info": {
+    "displayName": "LienImage"
+  },
+  "options": {},
+  "attributes": {
+    "lien": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    }
+  },
+  "config": {}
+}

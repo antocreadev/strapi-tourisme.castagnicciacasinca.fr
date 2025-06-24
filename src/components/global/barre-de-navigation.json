@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_global_barre_de_navigations",
+  "info": {
+    "displayName": "BarreDeNavigation"
+  },
+  "options": {},
+  "attributes": {
+    "logo": {
+      "type": "component",
+      "component": "partager.lien-image",
+      "repeatable": false
+    },
+    "page_de_sections": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::page-de-section.page-de-section"
+    }
+  },
+  "config": {}
+}

@@ -415,13 +415,36 @@ export interface ApiLandingPageLandingPage extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    BarreDeNavigation: Schema.Attribute.Component<
-      'global.barre-de-navigation',
+    ActiviteLoisir: Schema.Attribute.Component<
+      'sections.activite-loisir',
+      false
+    >;
+    Agenda: Schema.Attribute.Component<'sections.agenda', false>;
+    ArtisanatEtProduitsDuTerroir: Schema.Attribute.Component<
+      'sections.artisanat',
+      false
+    >;
+    CarteInteractive: Schema.Attribute.Component<
+      'sections.carte-interactive',
       false
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    DecouvrezLeTerritoire: Schema.Attribute.Component<
+      'sections.decouvrez-le-territoire',
+      false
+    >;
+    Hero: Schema.Attribute.Component<'sections.hero', false>;
+    InformationsPratiques: Schema.Attribute.Component<
+      'sections.informations-pratiques',
+      false
+    >;
+    LesIncontournables: Schema.Attribute.Component<
+      'sections.les-incontournables',
+      false
+    >;
+    LesPlages: Schema.Attribute.Component<'sections.les-plages', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -429,6 +452,7 @@ export interface ApiLandingPageLandingPage extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    Sejourner: Schema.Attribute.Component<'sections.sejourner', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -459,40 +483,7 @@ export interface ApiPageDeSectionPageDeSection
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    seo: Schema.Attribute.Relation<'oneToOne', 'api::seo.seo'>;
     Titre: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiSeoSeo extends Struct.CollectionTypeSchema {
-  collectionName: 'seos';
-  info: {
-    displayName: 'SEO';
-    pluralName: 'seos';
-    singularName: 'seo';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    description: Schema.Attribute.Text &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 150;
-      }>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::seo.seo'> &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    titre: Schema.Attribute.String &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 50;
-      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1011,7 +1002,6 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::landing-page.landing-page': ApiLandingPageLandingPage;
       'api::page-de-section.page-de-section': ApiPageDeSectionPageDeSection;
-      'api::seo.seo': ApiSeoSeo;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

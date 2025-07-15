@@ -19,11 +19,6 @@
     },
     "LienVersLaPage": {
       "type": "string"
-    },
-    "seo": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::seo.seo"
     }
   }
 }

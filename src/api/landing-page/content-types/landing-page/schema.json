@@ -11,9 +11,54 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "BarreDeNavigation": {
+    "Hero": {
       "type": "component",
-      "component": "global.barre-de-navigation",
+      "component": "sections.hero",
+      "repeatable": false
+    },
+    "Agenda": {
+      "type": "component",
+      "component": "sections.agenda",
+      "repeatable": false
+    },
+    "CarteInteractive": {
+      "type": "component",
+      "component": "sections.carte-interactive",
+      "repeatable": false
+    },
+    "LesIncontournables": {
+      "type": "component",
+      "component": "sections.les-incontournables",
+      "repeatable": false
+    },
+    "DecouvrezLeTerritoire": {
+      "type": "component",
+      "component": "sections.decouvrez-le-territoire",
+      "repeatable": false
+    },
+    "Sejourner": {
+      "type": "component",
+      "component": "sections.sejourner",
+      "repeatable": false
+    },
+    "LesPlages": {
+      "type": "component",
+      "component": "sections.les-plages",
+      "repeatable": false
+    },
+    "ArtisanatEtProduitsDuTerroir": {
+      "type": "component",
+      "component": "sections.artisanat",
+      "repeatable": false
+    },
+    "ActiviteLoisir": {
+      "type": "component",
+      "component": "sections.activite-loisir",
+      "repeatable": false
+    },
+    "InformationsPratiques": {
+      "type": "component",
+      "component": "sections.informations-pratiques",
       "repeatable": false
     }
   }

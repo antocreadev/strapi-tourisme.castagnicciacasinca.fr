@@ -4,6 +4,18 @@
     "displayName": "LesPlages"
   },
   "options": {},
-  "attributes": {},
+  "attributes": {
+    "Titre": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "bouton": {
+      "type": "component",
+      "component": "partager.lien-bouton",
+      "repeatable": false
+    }
+  },
   "config": {}
 }

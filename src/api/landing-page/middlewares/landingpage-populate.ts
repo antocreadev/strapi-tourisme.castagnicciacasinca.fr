@@ -5,9 +5,9 @@
 import type { Core } from "@strapi/strapi";
 
 const populate = [
-  "BarreDeNavigation.page_de_sections",
-  "BarreDeNavigation.logo",
-  "BarreDeNavigation.logo.image",
+  "Hero.texte",
+  "Hero.Boutons",
+  "Hero.images",
 ];
 
 export default (config, { strapi }: { strapi: Core.Strapi }) => {

@@ -4,6 +4,16 @@
     "displayName": "LesIncontournables"
   },
   "options": {},
-  "attributes": {},
+  "attributes": {
+    "Titre": {
+      "type": "string"
+    },
+    "SousTitre1": {
+      "type": "string"
+    },
+    "SousTitre2": {
+      "type": "string"
+    }
+  },
   "config": {}
 }

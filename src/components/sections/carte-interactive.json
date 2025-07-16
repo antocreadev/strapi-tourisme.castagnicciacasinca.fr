@@ -4,6 +4,26 @@
     "displayName": "CarteInteractive"
   },
   "options": {},
-  "attributes": {},
+  "attributes": {
+    "Titre": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "Bouton": {
+      "type": "component",
+      "component": "partager.lien-bouton",
+      "repeatable": false
+    }
+  },
   "config": {}
 }

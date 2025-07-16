@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "type_artisanat_et_produits",
+  "info": {
+    "singularName": "type-artisanat-et-produit",
+    "pluralName": "type-artisanat-et-produits",
+    "displayName": "TypeArtisanatEtProduit"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titre": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "lien": {
+      "type": "component",
+      "component": "partager.lien",
+      "repeatable": false
+    }
+  }
+}

@@ -4,6 +4,15 @@
     "displayName": "ActivitéLoisir"
   },
   "options": {},
-  "attributes": {},
+  "attributes": {
+    "Titre": {
+      "type": "string"
+    },
+    "type_artisanat_et_produits": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::type-artisanat-et-produit.type-artisanat-et-produit"
+    }
+  },
   "config": {}
 }

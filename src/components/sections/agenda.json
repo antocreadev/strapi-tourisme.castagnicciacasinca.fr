@@ -4,6 +4,13 @@
     "displayName": "Agenda"
   },
   "options": {},
-  "attributes": {},
+  "attributes": {
+    "Titre": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    }
+  },
   "config": {}
 }

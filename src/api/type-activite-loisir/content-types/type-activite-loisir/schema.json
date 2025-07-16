@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "type_activite_loisirs",
+  "info": {
+    "singularName": "type-activite-loisir",
+    "pluralName": "type-activite-loisirs",
+    "displayName": "TypeActiviteLoisir"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titre": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Icone": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Lien": {
+      "type": "component",
+      "component": "partager.lien",
+      "repeatable": false
+    }
+  }
+}

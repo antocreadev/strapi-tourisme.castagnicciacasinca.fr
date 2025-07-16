@@ -4,6 +4,20 @@
     "displayName": "Séjourner"
   },
   "options": {},
-  "attributes": {},
+  "attributes": {
+    "Titre": {
+      "type": "string"
+    },
+    "type_sejourners": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::type-sejourner.type-sejourner"
+    },
+    "Bouton": {
+      "type": "component",
+      "component": "partager.lien-bouton",
+      "repeatable": false
+    }
+  },
   "config": {}
 }

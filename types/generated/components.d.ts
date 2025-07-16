@@ -109,7 +109,12 @@ export interface PartagerLien extends Struct.ComponentSchema {
   info: {
     displayName: 'Lien';
   };
-  attributes: {};
+  attributes: {
+    Label: Schema.Attribute.String;
+    Lien: Schema.Attribute.String;
+    TextColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+  };
 }
 
 export interface PartagerLienBouton extends Struct.ComponentSchema {
@@ -118,10 +123,14 @@ export interface PartagerLienBouton extends Struct.ComponentSchema {
     displayName: 'LienBouton';
   };
   attributes: {
+    BorderColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
     Couleur: Schema.Attribute.String &
       Schema.Attribute.CustomField<'plugin::color-picker.color'>;
     Label: Schema.Attribute.String;
     Lien: Schema.Attribute.String;
+    TexteColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
   };
 }
 
@@ -141,7 +150,13 @@ export interface SectionsActiviteLoisir extends Struct.ComponentSchema {
   info: {
     displayName: 'Activit\u00E9Loisir';
   };
-  attributes: {};
+  attributes: {
+    Titre: Schema.Attribute.String;
+    type_artisanat_et_produits: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::type-artisanat-et-produit.type-artisanat-et-produit'
+    >;
+  };
 }
 
 export interface SectionsAgenda extends Struct.ComponentSchema {
@@ -149,7 +164,10 @@ export interface SectionsAgenda extends Struct.ComponentSchema {
   info: {
     displayName: 'Agenda';
   };
-  attributes: {};
+  attributes: {
+    Description: Schema.Attribute.Text;
+    Titre: Schema.Attribute.String;
+  };
 }
 
 export interface SectionsArtisanat extends Struct.ComponentSchema {
@@ -157,7 +175,14 @@ export interface SectionsArtisanat extends Struct.ComponentSchema {
   info: {
     displayName: 'Artisanat';
   };
-  attributes: {};
+  attributes: {
+    bouton: Schema.Attribute.Component<'partager.lien-bouton', false>;
+    Titre: Schema.Attribute.String;
+    type_artisanat_et_produits: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::type-artisanat-et-produit.type-artisanat-et-produit'
+    >;
+  };
 }
 
 export interface SectionsCarteInteractive extends Struct.ComponentSchema {
@@ -165,7 +190,12 @@ export interface SectionsCarteInteractive extends Struct.ComponentSchema {
   info: {
     displayName: 'CarteInteractive';
   };
-  attributes: {};
+  attributes: {
+    Bouton: Schema.Attribute.Component<'partager.lien-bouton', false>;
+    Description: Schema.Attribute.RichText;
+    image: Schema.Attribute.Media<'images' | 'files'>;
+    Titre: Schema.Attribute.String;
+  };
 }
 
 export interface SectionsDecouvrezLeTerritoire extends Struct.ComponentSchema {
@@ -173,7 +203,15 @@ export interface SectionsDecouvrezLeTerritoire extends Struct.ComponentSchema {
   info: {
     displayName: 'D\u00E9couvrezLeTerritoire';
   };
-  attributes: {};
+  attributes: {
+    Description: Schema.Attribute.Text;
+    DescriptionStat1: Schema.Attribute.Text;
+    DescriptionStat2: Schema.Attribute.Text;
+    media: Schema.Attribute.Media<'images' | 'files' | 'audios', true>;
+    Stat1: Schema.Attribute.String;
+    Stat2: Schema.Attribute.String;
+    Titre: Schema.Attribute.String;
+  };
 }
 
 export interface SectionsHero extends Struct.ComponentSchema {
@@ -193,7 +231,13 @@ export interface SectionsInformationsPratiques extends Struct.ComponentSchema {
   info: {
     displayName: 'InformationsPratiques';
   };
-  attributes: {};
+  attributes: {
+    Titre: Schema.Attribute.String;
+    type_information_pratiques: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::type-information-pratique.type-information-pratique'
+    >;
+  };
 }
 
 export interface SectionsLesIncontournables extends Struct.ComponentSchema {
@@ -201,7 +245,11 @@ export interface SectionsLesIncontournables extends Struct.ComponentSchema {
   info: {
     displayName: 'LesIncontournables';
   };
-  attributes: {};
+  attributes: {
+    SousTitre1: Schema.Attribute.String;
+    SousTitre2: Schema.Attribute.String;
+    Titre: Schema.Attribute.String;
+  };
 }
 
 export interface SectionsLesPlages extends Struct.ComponentSchema {
@@ -209,7 +257,11 @@ export interface SectionsLesPlages extends Struct.ComponentSchema {
   info: {
     displayName: 'LesPlages';
   };
-  attributes: {};
+  attributes: {
+    bouton: Schema.Attribute.Component<'partager.lien-bouton', false>;
+    Description: Schema.Attribute.RichText;
+    Titre: Schema.Attribute.String;
+  };
 }
 
 export interface SectionsSejourner extends Struct.ComponentSchema {
@@ -217,7 +269,14 @@ export interface SectionsSejourner extends Struct.ComponentSchema {
   info: {
     displayName: 'S\u00E9journer';
   };
-  attributes: {};
+  attributes: {
+    Bouton: Schema.Attribute.Component<'partager.lien-bouton', false>;
+    Titre: Schema.Attribute.String;
+    type_sejourners: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::type-sejourner.type-sejourner'
+    >;
+  };
 }
 
 declare module '@strapi/strapi' {

@@ -4,6 +4,34 @@
     "displayName": "DécouvrezLeTerritoire"
   },
   "options": {},
-  "attributes": {},
+  "attributes": {
+    "Titre": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Stat1": {
+      "type": "string"
+    },
+    "DescriptionStat1": {
+      "type": "text"
+    },
+    "Stat2": {
+      "type": "string"
+    },
+    "DescriptionStat2": {
+      "type": "text"
+    },
+    "media": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "audios"
+      ]
+    }
+  },
   "config": {}
 }

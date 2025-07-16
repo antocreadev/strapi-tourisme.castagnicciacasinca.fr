@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pieves",
+  "info": {
+    "singularName": "pieve",
+    "pluralName": "pieves",
+    "displayName": "Pieve"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nom": {
+      "type": "string"
+    }
+  }
+}

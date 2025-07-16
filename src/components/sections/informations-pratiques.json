@@ -4,6 +4,15 @@
     "displayName": "InformationsPratiques"
   },
   "options": {},
-  "attributes": {},
+  "attributes": {
+    "Titre": {
+      "type": "string"
+    },
+    "type_information_pratiques": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::type-information-pratique.type-information-pratique"
+    }
+  },
   "config": {}
 }

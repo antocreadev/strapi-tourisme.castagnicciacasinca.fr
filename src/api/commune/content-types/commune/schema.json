@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "communes",
+  "info": {
+    "singularName": "commune",
+    "pluralName": "communes",
+    "displayName": "Commune"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nom": {
+      "type": "string"
+    },
+    "pieve": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::pieve.pieve"
+    }
+  }
+}

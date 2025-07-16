@@ -4,6 +4,20 @@
     "displayName": "Artisanat"
   },
   "options": {},
-  "attributes": {},
+  "attributes": {
+    "Titre": {
+      "type": "string"
+    },
+    "type_artisanat_et_produits": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::type-artisanat-et-produit.type-artisanat-et-produit"
+    },
+    "bouton": {
+      "type": "component",
+      "component": "partager.lien-bouton",
+      "repeatable": false
+    }
+  },
   "config": {}
 }

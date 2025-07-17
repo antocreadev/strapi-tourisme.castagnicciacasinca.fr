@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "site_phares",
+  "info": {
+    "singularName": "site-phare",
+    "pluralName": "site-phares",
+    "displayName": "Site phare"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nom": {
+      "type": "string"
+    },
+    "site": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::site.site"
+    }
+  }
+}

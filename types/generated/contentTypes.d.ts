@@ -425,6 +425,11 @@ export interface ApiCommuneCommune extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    images: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -432,8 +437,49 @@ export interface ApiCommuneCommune extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     Nom: Schema.Attribute.String;
-    pieve: Schema.Attribute.Relation<'oneToOne', 'api::pieve.pieve'>;
+    pieve: Schema.Attribute.Relation<'manyToOne', 'api::pieve.pieve'>;
     publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiEvenementEvenement extends Struct.CollectionTypeSchema {
+  collectionName: 'evenements';
+  info: {
+    displayName: '\u00C9v\u00E8nement';
+    pluralName: 'evenements';
+    singularName: 'evenement';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    commune: Schema.Attribute.Relation<'oneToOne', 'api::commune.commune'>;
+    Coordonnees: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<
+        'plugin::geodata.geojson',
+        {
+          info: true;
+        }
+      >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.Date & Schema.Attribute.Required;
+    Description: Schema.Attribute.RichText;
+    image: Schema.Attribute.Media<'images' | 'files'>;
+    Liens: Schema.Attribute.Component<'partager.lien-image', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::evenement.evenement'
+    > &
+      Schema.Attribute.Private;
+    Nom: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    Tel: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -568,9 +614,11 @@ export interface ApiPievePieve extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    communes: Schema.Attribute.Relation<'oneToMany', 'api::commune.commune'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    Description: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::pieve.pieve'> &
       Schema.Attribute.Private;
@@ -594,7 +642,6 @@ export interface ApiSejournerSejourner extends Struct.CollectionTypeSchema {
   };
   attributes: {
     commune: Schema.Attribute.Relation<'oneToOne', 'api::commune.commune'>;
-    Contact: Schema.Attribute.String;
     Coordonnees: Schema.Attribute.JSON &
       Schema.Attribute.CustomField<
         'plugin::geodata.geojson',
@@ -623,11 +670,77 @@ export interface ApiSejournerSejourner extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    Tel: Schema.Attribute.String;
     Titre: Schema.Attribute.String;
     type_sejourner: Schema.Attribute.Relation<
       'oneToOne',
       'api::type-sejourner.type-sejourner'
     >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSitePhareSitePhare extends Struct.CollectionTypeSchema {
+  collectionName: 'site_phares';
+  info: {
+    displayName: 'Site phare';
+    pluralName: 'site-phares';
+    singularName: 'site-phare';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::site-phare.site-phare'
+    > &
+      Schema.Attribute.Private;
+    Nom: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    site: Schema.Attribute.Relation<'oneToOne', 'api::site.site'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSiteSite extends Struct.CollectionTypeSchema {
+  collectionName: 'sites';
+  info: {
+    displayName: 'Site';
+    pluralName: 'sites';
+    singularName: 'site';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    commune: Schema.Attribute.Relation<'oneToOne', 'api::commune.commune'>;
+    coordonnees: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<
+        'plugin::geodata.geojson',
+        {
+          info: true;
+        }
+      >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Description: Schema.Attribute.Text;
+    Images: Schema.Attribute.Media<'images' | 'files', true>;
+    Liens: Schema.Attribute.Component<'partager.lien-image', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::site.site'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Titre: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1272,11 +1385,14 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::artisanat-et-produit.artisanat-et-produit': ApiArtisanatEtProduitArtisanatEtProduit;
       'api::commune.commune': ApiCommuneCommune;
+      'api::evenement.evenement': ApiEvenementEvenement;
       'api::global.global': ApiGlobalGlobal;
       'api::landing-page.landing-page': ApiLandingPageLandingPage;
       'api::page-de-section.page-de-section': ApiPageDeSectionPageDeSection;
       'api::pieve.pieve': ApiPievePieve;
       'api::sejourner.sejourner': ApiSejournerSejourner;
+      'api::site-phare.site-phare': ApiSitePhareSitePhare;
+      'api::site.site': ApiSiteSite;
       'api::type-activite-loisir.type-activite-loisir': ApiTypeActiviteLoisirTypeActiviteLoisir;
       'api::type-artisanat-et-produit.type-artisanat-et-produit': ApiTypeArtisanatEtProduitTypeArtisanatEtProduit;
       'api::type-information-pratique.type-information-pratique': ApiTypeInformationPratiqueTypeInformationPratique;

@@ -10,6 +10,11 @@
     },
     "Description": {
       "type": "text"
+    },
+    "Bouton": {
+      "type": "component",
+      "component": "partager.lien-bouton",
+      "repeatable": false
     }
   },
   "config": {}

@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "sejourners",
+  "collectionName": "sites",
   "info": {
-    "singularName": "sejourner",
-    "pluralName": "sejourners",
-    "displayName": "Sejourner"
+    "singularName": "site",
+    "pluralName": "sites",
+    "displayName": "Site"
   },
   "options": {
     "draftAndPublish": true
@@ -22,32 +22,19 @@
       "relation": "oneToOne",
       "target": "api::commune.commune"
     },
-    "Coordonnees": {
+    "coordonnees": {
       "type": "customField",
       "customField": "plugin::geodata.geojson",
       "options": {
         "info": true
       }
     },
-    "type_sejourner": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::type-sejourner.type-sejourner"
-    },
-    "Tel": {
-      "type": "string"
-    },
-    "liens": {
+    "Liens": {
       "type": "component",
       "component": "partager.lien-image",
       "repeatable": true
     },
-    "EtablissementCharteNote": {
-      "type": "integer",
-      "min": 0,
-      "max": 3
-    },
-    "images": {
+    "Images": {
       "type": "media",
       "multiple": true,
       "allowedTypes": [

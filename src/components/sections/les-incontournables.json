@@ -11,8 +11,18 @@
     "SousTitre1": {
       "type": "string"
     },
+    "LienSection1": {
+      "type": "component",
+      "component": "partager.lien",
+      "repeatable": false
+    },
     "SousTitre2": {
       "type": "string"
+    },
+    "LienSection2": {
+      "type": "component",
+      "component": "partager.lien",
+      "repeatable": false
     }
   },
   "config": {}

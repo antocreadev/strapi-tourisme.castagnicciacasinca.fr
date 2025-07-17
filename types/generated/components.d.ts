@@ -152,9 +152,9 @@ export interface SectionsActiviteLoisir extends Struct.ComponentSchema {
   };
   attributes: {
     Titre: Schema.Attribute.String;
-    type_artisanat_et_produits: Schema.Attribute.Relation<
+    type_activite_loisirs: Schema.Attribute.Relation<
       'oneToMany',
-      'api::type-artisanat-et-produit.type-artisanat-et-produit'
+      'api::type-activite-loisir.type-activite-loisir'
     >;
   };
 }
@@ -165,6 +165,7 @@ export interface SectionsAgenda extends Struct.ComponentSchema {
     displayName: 'Agenda';
   };
   attributes: {
+    Bouton: Schema.Attribute.Component<'partager.lien-bouton', false>;
     Description: Schema.Attribute.Text;
     Titre: Schema.Attribute.String;
   };
@@ -246,6 +247,8 @@ export interface SectionsLesIncontournables extends Struct.ComponentSchema {
     displayName: 'LesIncontournables';
   };
   attributes: {
+    LienSection1: Schema.Attribute.Component<'partager.lien', false>;
+    LienSection2: Schema.Attribute.Component<'partager.lien', false>;
     SousTitre1: Schema.Attribute.String;
     SousTitre2: Schema.Attribute.String;
     Titre: Schema.Attribute.String;
@@ -260,6 +263,7 @@ export interface SectionsLesPlages extends Struct.ComponentSchema {
   attributes: {
     bouton: Schema.Attribute.Component<'partager.lien-bouton', false>;
     Description: Schema.Attribute.RichText;
+    image: Schema.Attribute.Media<'images' | 'files'>;
     Titre: Schema.Attribute.String;
   };
 }

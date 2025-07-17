@@ -16,8 +16,22 @@
     },
     "pieve": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::pieve.pieve"
+      "relation": "manyToOne",
+      "target": "api::pieve.pieve",
+      "inversedBy": "communes"
+    },
+    "description": {
+      "type": "text"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }

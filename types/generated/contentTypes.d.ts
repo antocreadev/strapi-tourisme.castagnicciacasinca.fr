@@ -373,6 +373,41 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiActivitesNautiqueActivitesNautique
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'activites_nautiques';
+  info: {
+    displayName: 'Activit\u00E9s nautique';
+    pluralName: 'activites-nautiques';
+    singularName: 'activites-nautique';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    commune: Schema.Attribute.Relation<'oneToOne', 'api::commune.commune'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Description: Schema.Attribute.Text;
+    Email: Schema.Attribute.Email;
+    Image: Schema.Attribute.Media<'images' | 'files'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::activites-nautique.activites-nautique'
+    > &
+      Schema.Attribute.Private;
+    Nom: Schema.Attribute.String;
+    plage: Schema.Attribute.Relation<'manyToOne', 'api::plage.plage'>;
+    publishedAt: Schema.Attribute.DateTime;
+    Tel: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiArtisanatEtProduitArtisanatEtProduit
   extends Struct.CollectionTypeSchema {
   collectionName: 'artisanat_et_produits';
@@ -386,12 +421,19 @@ export interface ApiArtisanatEtProduitArtisanatEtProduit
   };
   attributes: {
     commune: Schema.Attribute.Relation<'oneToOne', 'api::commune.commune'>;
-    Contact: Schema.Attribute.String;
+    Coordonnees: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<
+        'plugin::geodata.geojson',
+        {
+          info: true;
+        }
+      >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     Description: Schema.Attribute.Text;
-    images: Schema.Attribute.Media<'images' | 'files', true>;
+    Email: Schema.Attribute.Email;
+    image: Schema.Attribute.Media<'images' | 'files'>;
     Liens: Schema.Attribute.Component<'partager.lien-image', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -400,6 +442,7 @@ export interface ApiArtisanatEtProduitArtisanatEtProduit
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    Tel: Schema.Attribute.String;
     Titre: Schema.Attribute.String;
     type_artisanat_et_produit: Schema.Attribute.Relation<
       'oneToOne',
@@ -480,6 +523,10 @@ export interface ApiEvenementEvenement extends Struct.CollectionTypeSchema {
     Nom: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     Tel: Schema.Attribute.String;
+    type_evenement: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::type-evenement.type-evenement'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -630,6 +677,86 @@ export interface ApiPievePieve extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPlagePlage extends Struct.CollectionTypeSchema {
+  collectionName: 'plages';
+  info: {
+    displayName: 'Plage';
+    pluralName: 'plages';
+    singularName: 'plage';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    activites_nautiques: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::activites-nautique.activites-nautique'
+    >;
+    commune: Schema.Attribute.Relation<'oneToOne', 'api::commune.commune'>;
+    Coordonnees: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<
+        'plugin::geodata.geojson',
+        {
+          info: true;
+        }
+      >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Description: Schema.Attribute.Text;
+    Image: Schema.Attribute.Media<'images' | 'files'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::plage.plage'> &
+      Schema.Attribute.Private;
+    Niveau: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 3;
+          min: 0;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<0>;
+    Nom: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiRandonneeRandonnee extends Struct.CollectionTypeSchema {
+  collectionName: 'randonnees';
+  info: {
+    displayName: 'Randonn\u00E9e';
+    pluralName: 'randonnees';
+    singularName: 'randonnee';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    commune: Schema.Attribute.Relation<'oneToOne', 'api::commune.commune'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images' | 'files'>;
+    Lien: Schema.Attribute.Component<'partager.lien-image', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::randonnee.randonnee'
+    > &
+      Schema.Attribute.Private;
+    Nom: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiSejournerSejourner extends Struct.CollectionTypeSchema {
   collectionName: 'sejourners';
   info: {
@@ -653,14 +780,8 @@ export interface ApiSejournerSejourner extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     Description: Schema.Attribute.Text;
-    EtablissementCharteNote: Schema.Attribute.Integer &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 3;
-          min: 0;
-        },
-        number
-      >;
+    Email: Schema.Attribute.Email;
+    EtablissementCharteNote: Schema.Attribute.Media<'images' | 'files'>;
     images: Schema.Attribute.Media<'images' | 'files', true>;
     liens: Schema.Attribute.Component<'partager.lien-image', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -702,7 +823,6 @@ export interface ApiSitePhareSitePhare extends Struct.CollectionTypeSchema {
       'api::site-phare.site-phare'
     > &
       Schema.Attribute.Private;
-    Nom: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     site: Schema.Attribute.Relation<'oneToOne', 'api::site.site'>;
     updatedAt: Schema.Attribute.DateTime;
@@ -804,6 +924,39 @@ export interface ApiTypeArtisanatEtProduitTypeArtisanatEtProduit
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     Titre: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTypeEvenementTypeEvenement
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'type_evenements';
+  info: {
+    displayName: 'TypeEvenement';
+    pluralName: 'type-evenements';
+    singularName: 'type-evenement';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    evenements: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::evenement.evenement'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::type-evenement.type-evenement'
+    > &
+      Schema.Attribute.Private;
+    Nom: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1383,6 +1536,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::activites-nautique.activites-nautique': ApiActivitesNautiqueActivitesNautique;
       'api::artisanat-et-produit.artisanat-et-produit': ApiArtisanatEtProduitArtisanatEtProduit;
       'api::commune.commune': ApiCommuneCommune;
       'api::evenement.evenement': ApiEvenementEvenement;
@@ -1390,11 +1544,14 @@ declare module '@strapi/strapi' {
       'api::landing-page.landing-page': ApiLandingPageLandingPage;
       'api::page-de-section.page-de-section': ApiPageDeSectionPageDeSection;
       'api::pieve.pieve': ApiPievePieve;
+      'api::plage.plage': ApiPlagePlage;
+      'api::randonnee.randonnee': ApiRandonneeRandonnee;
       'api::sejourner.sejourner': ApiSejournerSejourner;
       'api::site-phare.site-phare': ApiSitePhareSitePhare;
       'api::site.site': ApiSiteSite;
       'api::type-activite-loisir.type-activite-loisir': ApiTypeActiviteLoisirTypeActiviteLoisir;
       'api::type-artisanat-et-produit.type-artisanat-et-produit': ApiTypeArtisanatEtProduitTypeArtisanatEtProduit;
+      'api::type-evenement.type-evenement': ApiTypeEvenementTypeEvenement;
       'api::type-information-pratique.type-information-pratique': ApiTypeInformationPratiqueTypeInformationPratique;
       'api::type-sejourner.type-sejourner': ApiTypeSejournerTypeSejourner;
       'plugin::content-releases.release': PluginContentReleasesRelease;

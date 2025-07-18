@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "randonnees",
+  "info": {
+    "singularName": "randonnee",
+    "pluralName": "randonnees",
+    "displayName": "Randonnée"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nom": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Lien": {
+      "type": "component",
+      "component": "partager.lien-image",
+      "repeatable": false
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "commune": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::commune.commune"
+    }
+  }
+}

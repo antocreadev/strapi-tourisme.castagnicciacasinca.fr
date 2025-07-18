@@ -10,12 +10,10 @@ const populate = [
   "image"
 ];
 
-
 export default (config, { strapi }: { strapi: Core.Strapi }) => {
   // Add your own logic here.
   return async (ctx, next) => {
     ctx.query.populate = populate;
-    console.dir(ctx.query, { depth: null });
     strapi.log.info('In evenement middleware.');
 
     await next();

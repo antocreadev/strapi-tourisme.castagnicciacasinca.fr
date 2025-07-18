@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "evenements",
+  "collectionName": "plages",
   "info": {
-    "singularName": "evenement",
-    "pluralName": "evenements",
-    "displayName": "Évènement"
+    "singularName": "plage",
+    "pluralName": "plages",
+    "displayName": "Plage"
   },
   "options": {
     "draftAndPublish": true
@@ -15,16 +15,12 @@
       "type": "string"
     },
     "Description": {
-      "type": "richtext"
+      "type": "text"
     },
     "commune": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::commune.commune"
-    },
-    "Date": {
-      "type": "date",
-      "required": true
     },
     "Coordonnees": {
       "type": "customField",
@@ -33,15 +29,7 @@
         "info": true
       }
     },
-    "Tel": {
-      "type": "string"
-    },
-    "Liens": {
-      "type": "component",
-      "component": "partager.lien-image",
-      "repeatable": true
-    },
-    "image": {
+    "Image": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
@@ -49,11 +37,17 @@
         "files"
       ]
     },
-    "type_evenement": {
+    "Niveau": {
+      "type": "integer",
+      "default": 0,
+      "min": 0,
+      "max": 3
+    },
+    "activites_nautiques": {
       "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::type-evenement.type-evenement",
-      "inversedBy": "evenements"
+      "relation": "oneToMany",
+      "target": "api::activites-nautique.activites-nautique",
+      "mappedBy": "plage"
     }
   }
 }

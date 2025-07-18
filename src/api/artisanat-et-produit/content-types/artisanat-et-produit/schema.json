@@ -27,12 +27,15 @@
       "relation": "oneToOne",
       "target": "api::commune.commune"
     },
-    "Contact": {
+    "Tel": {
       "type": "string"
     },
-    "images": {
+    "Email": {
+      "type": "email"
+    },
+    "image": {
       "type": "media",
-      "multiple": true,
+      "multiple": false,
       "allowedTypes": [
         "images",
         "files"
@@ -42,6 +45,13 @@
       "type": "component",
       "component": "partager.lien-image",
       "repeatable": true
+    },
+    "Coordonnees": {
+      "type": "customField",
+      "customField": "plugin::geodata.geojson",
+      "options": {
+        "info": true
+      }
     }
   }
 }

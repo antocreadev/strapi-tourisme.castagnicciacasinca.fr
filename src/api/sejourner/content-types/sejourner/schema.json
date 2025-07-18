@@ -34,6 +34,9 @@
       "relation": "oneToOne",
       "target": "api::type-sejourner.type-sejourner"
     },
+    "Email": {
+      "type": "email"
+    },
     "Tel": {
       "type": "string"
     },
@@ -42,14 +45,17 @@
       "component": "partager.lien-image",
       "repeatable": true
     },
-    "EtablissementCharteNote": {
-      "type": "integer",
-      "min": 0,
-      "max": 3
-    },
     "images": {
       "type": "media",
       "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "EtablissementCharteNote": {
+      "type": "media",
+      "multiple": false,
       "allowedTypes": [
         "images",
         "files"

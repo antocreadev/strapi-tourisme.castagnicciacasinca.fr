@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "activites_nautiques",
+  "info": {
+    "singularName": "activites-nautique",
+    "pluralName": "activites-nautiques",
+    "displayName": "Activités nautique"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nom": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "Email": {
+      "type": "email"
+    },
+    "Tel": {
+      "type": "string"
+    },
+    "commune": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::commune.commune"
+    },
+    "plage": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::plage.plage",
+      "inversedBy": "activites_nautiques"
+    }
+  }
+}

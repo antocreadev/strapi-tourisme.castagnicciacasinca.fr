@@ -571,6 +571,39 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiInformationPratiqueInformationPratique
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'information_pratiques';
+  info: {
+    displayName: 'InformationPratique';
+    pluralName: 'information-pratiques';
+    singularName: 'information-pratique';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::information-pratique.information-pratique'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Texte: Schema.Attribute.RichText;
+    type_information_pratique: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::type-information-pratique.type-information-pratique'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiLandingPageLandingPage extends Struct.SingleTypeSchema {
   collectionName: 'landing_pages';
   info: {
@@ -1555,6 +1588,7 @@ declare module '@strapi/strapi' {
       'api::commune.commune': ApiCommuneCommune;
       'api::evenement.evenement': ApiEvenementEvenement;
       'api::global.global': ApiGlobalGlobal;
+      'api::information-pratique.information-pratique': ApiInformationPratiqueInformationPratique;
       'api::landing-page.landing-page': ApiLandingPageLandingPage;
       'api::page-de-section.page-de-section': ApiPageDeSectionPageDeSection;
       'api::pieve.pieve': ApiPievePieve;

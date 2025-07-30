@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "information_pratiques",
+  "info": {
+    "singularName": "information-pratique",
+    "pluralName": "information-pratiques",
+    "displayName": "InformationPratique"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "type_information_pratique": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::type-information-pratique.type-information-pratique"
+    },
+    "Texte": {
+      "type": "richtext"
+    }
+  }
+}

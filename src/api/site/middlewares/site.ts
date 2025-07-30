@@ -1,18 +1,13 @@
 /**
- * `activites-nautique` middleware
+ * `site` middleware
  */
 
 import type { Core } from '@strapi/strapi';
-const populate = [
-  "Image",
-  "commune",
-  "plage",
-];
+
 export default (config, { strapi }: { strapi: Core.Strapi }) => {
   // Add your own logic here.
   return async (ctx, next) => {
-    strapi.log.info('In activites-nautique middleware.');
-    ctx.query.populate = populate;
+    strapi.log.info('In site middleware.');
 
     await next();
   };

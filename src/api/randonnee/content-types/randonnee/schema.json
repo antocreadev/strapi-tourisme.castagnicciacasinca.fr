@@ -34,6 +34,13 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::commune.commune"
+    },
+    "depart": {
+      "type": "customField",
+      "customField": "plugin::geodata.geojson",
+      "options": {
+        "info": true
+      }
     }
   }
 }

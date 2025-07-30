@@ -32,6 +32,13 @@
         "videos",
         "audios"
       ]
+    },
+    "coordonnees": {
+      "type": "customField",
+      "customField": "plugin::geodata.geojson",
+      "options": {
+        "info": true
+      }
     }
   }
 }

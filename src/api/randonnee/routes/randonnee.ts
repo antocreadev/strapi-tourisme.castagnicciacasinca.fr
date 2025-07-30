@@ -4,4 +4,10 @@
 
 import { factories } from '@strapi/strapi';
 
-export default factories.createCoreRouter('api::randonnee.randonnee');
+export default factories.createCoreRouter('api::randonnee.randonnee', {
+  config: {
+    find: {
+      middlewares: ["api::randonnee.randonnee"],
+    },
+  },
+});

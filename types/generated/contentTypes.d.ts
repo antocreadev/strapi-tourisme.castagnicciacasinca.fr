@@ -465,6 +465,13 @@ export interface ApiCommuneCommune extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    coordonnees: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<
+        'plugin::geodata.geojson',
+        {
+          info: true;
+        }
+      >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -740,6 +747,13 @@ export interface ApiRandonneeRandonnee extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    depart: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<
+        'plugin::geodata.geojson',
+        {
+          info: true;
+        }
+      >;
     Description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images' | 'files'>;
     Lien: Schema.Attribute.Component<'partager.lien-image', false>;

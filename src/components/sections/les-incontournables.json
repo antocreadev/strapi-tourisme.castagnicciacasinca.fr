@@ -16,6 +16,9 @@
       "component": "partager.lien",
       "repeatable": false
     },
+    "Section1Visible": {
+      "type": "boolean"
+    },
     "SousTitre2": {
       "type": "string"
     },
@@ -23,6 +26,9 @@
       "type": "component",
       "component": "partager.lien",
       "repeatable": false
+    },
+    "Section2Visible": {
+      "type": "boolean"
     }
   },
   "config": {}

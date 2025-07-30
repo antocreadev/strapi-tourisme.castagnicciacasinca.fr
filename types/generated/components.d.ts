@@ -249,6 +249,8 @@ export interface SectionsLesIncontournables extends Struct.ComponentSchema {
   attributes: {
     LienSection1: Schema.Attribute.Component<'partager.lien', false>;
     LienSection2: Schema.Attribute.Component<'partager.lien', false>;
+    Section1Visible: Schema.Attribute.Boolean;
+    Section2Visible: Schema.Attribute.Boolean;
     SousTitre1: Schema.Attribute.String;
     SousTitre2: Schema.Attribute.String;
     Titre: Schema.Attribute.String;

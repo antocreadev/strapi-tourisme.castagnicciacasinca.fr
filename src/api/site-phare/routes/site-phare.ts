@@ -4,4 +4,13 @@
 
 import { factories } from '@strapi/strapi';
 
-export default factories.createCoreRouter('api::site-phare.site-phare');
+export default factories.createCoreRouter('api::site-phare.site-phare',
+{
+    config: {
+    find: {
+      middlewares: ["api::site-phare.site-phare"],
+    },
+  },
+}
+
+);

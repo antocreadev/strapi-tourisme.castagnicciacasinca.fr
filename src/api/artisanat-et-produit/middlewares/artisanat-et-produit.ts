@@ -7,7 +7,7 @@ const populate = [
   "type_artisanat_et_produit",
   "image",
   "Liens",
-  "Liens.image",
+  "Liens.images",
 ];
 export default (config, { strapi }: { strapi: Core.Strapi }) => {
   // Add your own logic here.

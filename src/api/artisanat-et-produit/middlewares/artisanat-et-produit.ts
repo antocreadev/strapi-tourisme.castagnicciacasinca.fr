@@ -5,9 +5,9 @@
 import type { Core } from '@strapi/strapi';
 const populate = [
   "type_artisanat_et_produit",
-  "image",
+  "images",
   "Liens",
-  "Liens.images",
+  "Liens.image",
 ];
 export default (config, { strapi }: { strapi: Core.Strapi }) => {
   // Add your own logic here.

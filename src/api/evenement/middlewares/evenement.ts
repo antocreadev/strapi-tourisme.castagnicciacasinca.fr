@@ -7,7 +7,8 @@ const populate = [
   "commune",
   "Liens",
   "Liens.image",
-  "image"
+  "image",
+  "type_evenement"
 ];
 
 export default (config, { strapi }: { strapi: Core.Strapi }) => {

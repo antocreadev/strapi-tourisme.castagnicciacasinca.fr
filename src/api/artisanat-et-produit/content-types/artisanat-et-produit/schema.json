@@ -33,9 +33,9 @@
     "Email": {
       "type": "email"
     },
-    "image": {
+    "images": {
       "type": "media",
-      "multiple": false,
+      "multiple": true,
       "allowedTypes": [
         "images",
         "files"

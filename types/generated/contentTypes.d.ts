@@ -433,7 +433,7 @@ export interface ApiArtisanatEtProduitArtisanatEtProduit
       Schema.Attribute.Private;
     Description: Schema.Attribute.Text;
     Email: Schema.Attribute.Email;
-    image: Schema.Attribute.Media<'images' | 'files'>;
+    images: Schema.Attribute.Media<'images' | 'files', true>;
     Liens: Schema.Attribute.Component<'partager.lien-image', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -788,7 +788,7 @@ export interface ApiRandonneeRandonnee extends Struct.CollectionTypeSchema {
         }
       >;
     Description: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<'images' | 'files'>;
+    images: Schema.Attribute.Media<'images' | 'files', true>;
     Lien: Schema.Attribute.Component<'partager.lien-image', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<

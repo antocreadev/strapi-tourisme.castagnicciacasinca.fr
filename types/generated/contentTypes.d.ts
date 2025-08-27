@@ -1020,6 +1020,7 @@ export interface ApiTextePageSecondaireTextePageSecondaire
     descriptionPlage: Schema.Attribute.Text;
     descriptionRandonnee: Schema.Attribute.Text;
     descriptionSejourner: Schema.Attribute.Text;
+    descriptionSite: Schema.Attribute.Text;
     descriptiontActiviteNautique: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -1035,6 +1036,7 @@ export interface ApiTextePageSecondaireTextePageSecondaire
     titrePlage: Schema.Attribute.String;
     titreRandonnee: Schema.Attribute.String;
     titreSejourner: Schema.Attribute.String;
+    titreSite: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

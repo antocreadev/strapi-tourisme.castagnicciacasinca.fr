@@ -52,6 +52,12 @@
     },
     "descriptiontActiviteNautique": {
       "type": "text"
+    },
+    "titreSite": {
+      "type": "string"
+    },
+    "descriptionSite": {
+      "type": "text"
     }
   }
 }

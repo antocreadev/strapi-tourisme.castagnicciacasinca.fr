@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_partager_card_pdfs",
+  "info": {
+    "displayName": "CardPdf"
+  },
+  "options": {},
+  "attributes": {
+    "Titre": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Lien": {
+      "type": "component",
+      "component": "partager.lien",
+      "repeatable": false
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    }
+  },
+  "config": {}
+}

@@ -38,7 +38,11 @@ const populate = [
   "InformationsPratiques",
   "InformationsPratiques.type_information_pratiques",
   "InformationsPratiques.type_information_pratiques.Lien",
-  "InformationsPratiques.type_information_pratiques.Icone"
+  "InformationsPratiques.type_information_pratiques.Icone",
+  "guideSections",
+  "guideSections.PDF",
+  "guideSections.PDF.Lien",
+  "guideSections.PDF.image"
 ];
 
 

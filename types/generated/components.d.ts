@@ -104,6 +104,19 @@ export interface GlobalBarreDeNavigation extends Struct.ComponentSchema {
   };
 }
 
+export interface PartagerCardPdf extends Struct.ComponentSchema {
+  collectionName: 'components_partager_card_pdfs';
+  info: {
+    displayName: 'CardPdf';
+  };
+  attributes: {
+    Description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images' | 'files'>;
+    Lien: Schema.Attribute.Component<'partager.lien', false>;
+    Titre: Schema.Attribute.String;
+  };
+}
+
 export interface PartagerLien extends Struct.ComponentSchema {
   collectionName: 'components_partager_liens';
   info: {
@@ -215,6 +228,16 @@ export interface SectionsDecouvrezLeTerritoire extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionsGuidesSection extends Struct.ComponentSchema {
+  collectionName: 'components_sections_guides_sections';
+  info: {
+    displayName: 'Guides section';
+  };
+  attributes: {
+    PDF: Schema.Attribute.Component<'partager.card-pdf', true>;
+  };
+}
+
 export interface SectionsHero extends Struct.ComponentSchema {
   collectionName: 'components_sections_heroes';
   info: {
@@ -300,6 +323,7 @@ declare module '@strapi/strapi' {
       'cards.type-hebergement': CardsTypeHebergement;
       'cards.type-information-pratique': CardsTypeInformationPratique;
       'global.barre-de-navigation': GlobalBarreDeNavigation;
+      'partager.card-pdf': PartagerCardPdf;
       'partager.lien': PartagerLien;
       'partager.lien-bouton': PartagerLienBouton;
       'partager.lien-image': PartagerLienImage;
@@ -308,6 +332,7 @@ declare module '@strapi/strapi' {
       'sections.artisanat': SectionsArtisanat;
       'sections.carte-interactive': SectionsCarteInteractive;
       'sections.decouvrez-le-territoire': SectionsDecouvrezLeTerritoire;
+      'sections.guides-section': SectionsGuidesSection;
       'sections.hero': SectionsHero;
       'sections.informations-pratiques': SectionsInformationsPratiques;
       'sections.les-incontournables': SectionsLesIncontournables;

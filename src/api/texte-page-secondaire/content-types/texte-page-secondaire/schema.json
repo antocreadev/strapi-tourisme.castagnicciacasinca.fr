@@ -1,0 +1,57 @@
+{
+  "kind": "singleType",
+  "collectionName": "texte_page_secondaires",
+  "info": {
+    "singularName": "texte-page-secondaire",
+    "pluralName": "texte-page-secondaires",
+    "displayName": "Texte  page secondaire"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titrePlage": {
+      "type": "string"
+    },
+    "descriptionPlage": {
+      "type": "text"
+    },
+    "titreArtisanat": {
+      "type": "string"
+    },
+    "descriptionArtisanat": {
+      "type": "text"
+    },
+    "titreAgenda": {
+      "type": "string"
+    },
+    "descriptionAgenda": {
+      "type": "text"
+    },
+    "titreCarte": {
+      "type": "string"
+    },
+    "descriptionCarte": {
+      "type": "text"
+    },
+    "titreSejourner": {
+      "type": "string"
+    },
+    "descriptionSejourner": {
+      "type": "text"
+    },
+    "titreRandonnee": {
+      "type": "string"
+    },
+    "descriptionRandonnee": {
+      "type": "text"
+    },
+    "titreActiviteNautique": {
+      "type": "string"
+    },
+    "descriptiontActiviteNautique": {
+      "type": "text"
+    }
+  }
+}

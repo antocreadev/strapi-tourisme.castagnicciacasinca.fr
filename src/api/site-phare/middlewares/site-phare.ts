@@ -6,6 +6,7 @@ import type { Core } from '@strapi/strapi';
 
 const populate = [
   "site",
+  "site.Images"
 ];
 
 

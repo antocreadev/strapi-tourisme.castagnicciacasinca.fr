@@ -56,6 +56,11 @@
       "component": "sections.activite-loisir",
       "repeatable": false
     },
+    "guideSections": {
+      "type": "component",
+      "component": "sections.guides-section",
+      "repeatable": false
+    },
     "InformationsPratiques": {
       "type": "component",
       "component": "sections.informations-pratiques",

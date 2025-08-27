@@ -495,6 +495,90 @@ export interface ApiCommuneCommune extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCouleurDuTexteEtDuFondCouleurDuTexteEtDuFond
+  extends Struct.SingleTypeSchema {
+  collectionName: 'couleur_du_texte_et_du_fonds';
+  info: {
+    displayName: 'Couleur du texte et du fond';
+    pluralName: 'couleur-du-texte-et-du-fonds';
+    singularName: 'couleur-du-texte-et-du-fond';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    fondActivites: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    FondAgenda: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    FondArtisanat: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    fondBarreNavigation: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    fondCarteInteractive: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    fondDecouvrezLeTerritoire: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    fondElementActivites: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    fondElementAgenda: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    fondElementGuidesNumeriques: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    fondElementInformationsPratiques: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    fondElementSejourner: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    fondGuidesNumeriques: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    fondIncontournables: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    fondInformationsPratiques: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    FondPlages: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    fondSejourner: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::couleur-du-texte-et-du-fond.couleur-du-texte-et-du-fond'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    texteActivites: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    texteAgenda: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    texteArtisanat: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    texteBarreNavigation: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    texteCarteInteractive: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    texteDecouvrezLeTerritoire: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    texteGuidesNumeriques: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    texteHeroSection: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    texteIncontournables: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    texteInformationsPratiques: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    textePlages: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    texteSejourner: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiEvenementEvenement extends Struct.CollectionTypeSchema {
   collectionName: 'evenements';
   info: {
@@ -635,6 +719,7 @@ export interface ApiLandingPageLandingPage extends Struct.SingleTypeSchema {
       'sections.decouvrez-le-territoire',
       false
     >;
+    guideSections: Schema.Attribute.Component<'sections.guides-section', false>;
     Hero: Schema.Attribute.Component<'sections.hero', false>;
     InformationsPratiques: Schema.Attribute.Component<
       'sections.informations-pratiques',
@@ -908,6 +993,48 @@ export interface ApiSiteSite extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     Titre: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTextePageSecondaireTextePageSecondaire
+  extends Struct.SingleTypeSchema {
+  collectionName: 'texte_page_secondaires';
+  info: {
+    displayName: 'Texte  page secondaire';
+    pluralName: 'texte-page-secondaires';
+    singularName: 'texte-page-secondaire';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    descriptionAgenda: Schema.Attribute.Text;
+    descriptionArtisanat: Schema.Attribute.Text;
+    descriptionCarte: Schema.Attribute.Text;
+    descriptionPlage: Schema.Attribute.Text;
+    descriptionRandonnee: Schema.Attribute.Text;
+    descriptionSejourner: Schema.Attribute.Text;
+    descriptiontActiviteNautique: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::texte-page-secondaire.texte-page-secondaire'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    titreActiviteNautique: Schema.Attribute.String;
+    titreAgenda: Schema.Attribute.String;
+    titreArtisanat: Schema.Attribute.String;
+    titreCarte: Schema.Attribute.String;
+    titrePlage: Schema.Attribute.String;
+    titreRandonnee: Schema.Attribute.String;
+    titreSejourner: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1586,6 +1713,7 @@ declare module '@strapi/strapi' {
       'api::activites-nautique.activites-nautique': ApiActivitesNautiqueActivitesNautique;
       'api::artisanat-et-produit.artisanat-et-produit': ApiArtisanatEtProduitArtisanatEtProduit;
       'api::commune.commune': ApiCommuneCommune;
+      'api::couleur-du-texte-et-du-fond.couleur-du-texte-et-du-fond': ApiCouleurDuTexteEtDuFondCouleurDuTexteEtDuFond;
       'api::evenement.evenement': ApiEvenementEvenement;
       'api::global.global': ApiGlobalGlobal;
       'api::information-pratique.information-pratique': ApiInformationPratiqueInformationPratique;
@@ -1597,6 +1725,7 @@ declare module '@strapi/strapi' {
       'api::sejourner.sejourner': ApiSejournerSejourner;
       'api::site-phare.site-phare': ApiSitePhareSitePhare;
       'api::site.site': ApiSiteSite;
+      'api::texte-page-secondaire.texte-page-secondaire': ApiTextePageSecondaireTextePageSecondaire;
       'api::type-activite-loisir.type-activite-loisir': ApiTypeActiviteLoisirTypeActiviteLoisir;
       'api::type-artisanat-et-produit.type-artisanat-et-produit': ApiTypeArtisanatEtProduitTypeArtisanatEtProduit;
       'api::type-evenement.type-evenement': ApiTypeEvenementTypeEvenement;

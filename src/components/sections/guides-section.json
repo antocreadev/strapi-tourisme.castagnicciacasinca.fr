@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_sections_guides_sections",
+  "info": {
+    "displayName": "Guides section"
+  },
+  "options": {},
+  "attributes": {
+    "PDF": {
+      "type": "component",
+      "component": "partager.card-pdf",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

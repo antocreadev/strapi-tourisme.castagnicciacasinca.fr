@@ -1,0 +1,7 @@
+/**
+ * texte-page-secondaire router
+ */
+
+import { factories } from '@strapi/strapi';
+
+export default factories.createCoreRouter('api::texte-page-secondaire.texte-page-secondaire');

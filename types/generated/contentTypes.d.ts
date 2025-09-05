@@ -603,7 +603,7 @@ export interface ApiEvenementEvenement extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     Date: Schema.Attribute.Date & Schema.Attribute.Required;
     Description: Schema.Attribute.RichText;
-    image: Schema.Attribute.Media<'images' | 'files'>;
+    images: Schema.Attribute.Media<'images' | 'files', true>;
     Liens: Schema.Attribute.Component<'partager.lien-image', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<

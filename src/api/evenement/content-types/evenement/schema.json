@@ -41,9 +41,9 @@
       "component": "partager.lien-image",
       "repeatable": true
     },
-    "image": {
+    "images": {
       "type": "media",
-      "multiple": false,
+      "multiple": true,
       "allowedTypes": [
         "images",
         "files"

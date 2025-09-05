@@ -7,7 +7,7 @@ const populate = [
   "commune",
   "Liens",
   "Liens.image",
-  "image",
+  "images",
   "type_evenement"
 ];
 

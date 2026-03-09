@@ -850,6 +850,45 @@ export interface ApiPlagePlage extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiQrCodeQrCode extends Struct.CollectionTypeSchema {
+  collectionName: 'qr_codes';
+  info: {
+    displayName: 'QRCode';
+    pluralName: 'qr-codes';
+    singularName: 'qr-code';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    commune: Schema.Attribute.Relation<'oneToOne', 'api::commune.commune'>;
+    coordonnees: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<
+        'plugin::geodata.geojson',
+        {
+          info: true;
+        }
+      >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Blocks;
+    images: Schema.Attribute.Media<'images' | 'files', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::qr-code.qr-code'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    site: Schema.Attribute.Relation<'oneToOne', 'api::site.site'>;
+    Titre: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiRandonneeRandonnee extends Struct.CollectionTypeSchema {
   collectionName: 'randonnees';
   info: {
@@ -1723,6 +1762,7 @@ declare module '@strapi/strapi' {
       'api::page-de-section.page-de-section': ApiPageDeSectionPageDeSection;
       'api::pieve.pieve': ApiPievePieve;
       'api::plage.plage': ApiPlagePlage;
+      'api::qr-code.qr-code': ApiQrCodeQrCode;
       'api::randonnee.randonnee': ApiRandonneeRandonnee;
       'api::sejourner.sejourner': ApiSejournerSejourner;
       'api::site-phare.site-phare': ApiSitePhareSitePhare;

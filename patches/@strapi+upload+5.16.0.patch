@@ -1,0 +1,81 @@
+diff --git a/node_modules/@strapi/upload/dist/admin/utils/rawFileToAsset.js b/node_modules/@strapi/upload/dist/admin/utils/rawFileToAsset.js
+index 01b95ff..9b2e24b 100644
+--- a/node_modules/@strapi/upload/dist/admin/utils/rawFileToAsset.js
++++ b/node_modules/@strapi/upload/dist/admin/utils/rawFileToAsset.js
+@@ -2,16 +2,34 @@
+ 
+ var typeFromMime = require('./typeFromMime.js');
+ 
++const EXT_TO_MIME = {
++    gpx: 'application/gpx+xml',
++    kml: 'application/vnd.google-earth.kml+xml',
++    kmz: 'application/vnd.google-earth.kmz',
++    geojson: 'application/geo+json',
++    json: 'application/json',
++    xml: 'application/xml',
++    csv: 'text/csv',
++    txt: 'text/plain',
++};
++
++const getMime = (rawFile)=>{
++    if (rawFile.type) return rawFile.type;
++    const ext = (rawFile.name || '').split('.').pop()?.toLowerCase();
++    return EXT_TO_MIME[ext] || 'application/octet-stream';
++};
++
+ const rawFileToAsset = (rawFile, assetSource)=>{
++    const mime = getMime(rawFile);
+     return {
+         size: rawFile.size / 1000,
+         createdAt: new Date(rawFile.lastModified).toISOString(),
+         name: rawFile.name,
+         source: assetSource,
+-        type: typeFromMime.typeFromMime(rawFile.type),
++        type: typeFromMime.typeFromMime(mime),
+         url: URL.createObjectURL(rawFile),
+         ext: rawFile.name.split('.').pop(),
+-        mime: rawFile.type,
++        mime,
+         rawFile,
+         isLocal: true
+     };
+diff --git a/node_modules/@strapi/upload/dist/admin/utils/rawFileToAsset.mjs b/node_modules/@strapi/upload/dist/admin/utils/rawFileToAsset.mjs
+index d4731d0..bc19a95 100644
+--- a/node_modules/@strapi/upload/dist/admin/utils/rawFileToAsset.mjs
++++ b/node_modules/@strapi/upload/dist/admin/utils/rawFileToAsset.mjs
+@@ -1,15 +1,33 @@
+ import { typeFromMime } from './typeFromMime.mjs';
+ 
++const EXT_TO_MIME = {
++    gpx: 'application/gpx+xml',
++    kml: 'application/vnd.google-earth.kml+xml',
++    kmz: 'application/vnd.google-earth.kmz',
++    geojson: 'application/geo+json',
++    json: 'application/json',
++    xml: 'application/xml',
++    csv: 'text/csv',
++    txt: 'text/plain',
++};
++
++const getMime = (rawFile)=>{
++    if (rawFile.type) return rawFile.type;
++    const ext = (rawFile.name || '').split('.').pop()?.toLowerCase();
++    return EXT_TO_MIME[ext] || 'application/octet-stream';
++};
++
+ const rawFileToAsset = (rawFile, assetSource)=>{
++    const mime = getMime(rawFile);
+     return {
+         size: rawFile.size / 1000,
+         createdAt: new Date(rawFile.lastModified).toISOString(),
+         name: rawFile.name,
+         source: assetSource,
+-        type: typeFromMime(rawFile.type),
++        type: typeFromMime(mime),
+         url: URL.createObjectURL(rawFile),
+         ext: rawFile.name.split('.').pop(),
+-        mime: rawFile.type,
++        mime,
+         rawFile,
+         isLocal: true
+     };

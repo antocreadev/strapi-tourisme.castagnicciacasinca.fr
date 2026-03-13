@@ -17,10 +17,12 @@
     "Description": {
       "type": "text"
     },
-    "Lien": {
-      "type": "component",
-      "component": "partager.lien-image",
-      "repeatable": false
+    "GPX": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "files"
+      ]
     },
     "images": {
       "type": "media",

@@ -5,8 +5,7 @@
 import type { Core } from '@strapi/strapi';
 const populate = [
   "commune",
-  "Lien",
-  "Lien.image",
+  "GPX",
   "images"
 ];
 

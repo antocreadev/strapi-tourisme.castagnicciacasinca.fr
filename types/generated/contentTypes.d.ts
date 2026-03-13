@@ -912,8 +912,8 @@ export interface ApiRandonneeRandonnee extends Struct.CollectionTypeSchema {
         }
       >;
     Description: Schema.Attribute.Text;
+    GPX: Schema.Attribute.Media<'files'>;
     images: Schema.Attribute.Media<'images' | 'files', true>;
-    Lien: Schema.Attribute.Component<'partager.lien-image', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

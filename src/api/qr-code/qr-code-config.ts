@@ -8,7 +8,11 @@
  * - Couleurs, marges
  * - Taille et résolution
  * - URL de base du site frontend
+ * - Style des modules (arrondis)
+ * - Logo au centre
  */
+
+import path from "path";
 
 export const QR_CODE_CONFIG = {
   /** URL de base du site frontend */
@@ -31,6 +35,27 @@ export const QR_CODE_CONFIG = {
 
   /** Niveau de correction d'erreur : 'L' (7%), 'M' (15%), 'Q' (25%), 'H' (30%) */
   errorCorrectionLevel: "H" as const,
+
+  /**
+   * Rayon d'arrondi des modules QR (0 = carré, 0.5 = cercle)
+   * Recommandé : 0.3 à 0.4 pour un style moderne
+   */
+  dotRadius: 0.4,
+
+  /**
+   * Chemin vers le fichier logo à placer au centre du QR code
+   * Formats supportés : PNG, JPG, SVG
+   * Mettre null pour désactiver le logo
+   *
+   * Exemple : path.resolve(__dirname, "../../../../public/logo.png")
+   */
+  logoPath: path.resolve(__dirname, "../../../../public/logo-castagniccia.jpg"),
+
+  /**
+   * Taille du logo par rapport au QR code (ex: 0.2 = 20%)
+   * Ne pas dépasser 0.25 pour garder le QR lisible (avec correction H)
+   */
+  logoSizeRatio: 0.2,
 };
 
 /**

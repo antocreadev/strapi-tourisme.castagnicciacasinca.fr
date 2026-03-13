@@ -45,6 +45,27 @@ const DownloadQrCodeSvg = (props: any) => {
 DownloadQrCodeSvg.type = "download-qrcode-svg";
 DownloadQrCodeSvg.position = "panel";
 
+/**
+ * Document Action : Télécharger QR Code EPS
+ */
+const DownloadQrCodeEps = (props: any) => {
+  if (props.model !== "api::qr-code.qr-code") return null;
+  if (!props.documentId) return null;
+
+  return {
+    label: "Télécharger QR Code (EPS)",
+    icon: createElement(Download),
+    variant: "secondary" as const,
+    disabled: !props.document?.publishedAt,
+    onClick: () => {
+      const url = `/api/qr-codes/${props.documentId}/download-qrcode?format=eps`;
+      window.open(url, "_blank");
+    },
+  };
+};
+DownloadQrCodeEps.type = "download-qrcode-eps";
+DownloadQrCodeEps.position = "panel";
+
 export default {
   config: {
     locales: ["fr"],
@@ -54,6 +75,7 @@ export default {
     contentManagerPlugin.apis.addDocumentAction([
       DownloadQrCodePng,
       DownloadQrCodeSvg,
+      DownloadQrCodeEps,
     ]);
   },
   bootstrap(app: StrapiApp) {},

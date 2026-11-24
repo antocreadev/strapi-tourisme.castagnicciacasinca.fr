@@ -23,8 +23,14 @@
       "target": "api::commune.commune"
     },
     "Date": {
-      "type": "date",
-      "required": true
+      "type": "date"
+    },
+    "DateFin": {
+      "type": "date"
+    },
+    "PagePrincipale": {
+      "type": "boolean",
+      "default": false
     },
     "Coordonnees": {
       "type": "customField",

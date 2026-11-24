@@ -19,27 +19,23 @@ export default [
           "script-src": [
             "'self'",
             "unsafe-inline",
-            "https://*.basemaps.cartocdn.com",
           ],
           "media-src": [
             "'self'",
             "blob:",
             "data:",
-            "https://*.basemaps.cartocdn.com",
-            "https://tile.openstreetmap.org",
-            "https://*.tile.openstreetmap.org",
           ],
           "img-src": [
             "'self'",
             "blob:",
             "data:",
-            "https://*.basemaps.cartocdn.com",
             "market-assets.strapi.io",
-            "https://*.tile.openstreetmap.org",
+            // Fond de carte IGN (Geoplateforme) du champ Coordonnees
+            "https://data.geopf.fr",
             "https://unpkg.com/leaflet@1.9.4/dist/images/",
           ],
         },
       },
     },
-  },  
+  },
 ];

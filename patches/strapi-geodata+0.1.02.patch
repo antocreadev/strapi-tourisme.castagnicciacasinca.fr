@@ -1,0 +1,56 @@
+diff --git a/node_modules/strapi-geodata/dist/_chunks/Input-CGF4Yw8A.js b/node_modules/strapi-geodata/dist/_chunks/Input-CGF4Yw8A.js
+index 6c19f94..d125b72 100644
+--- a/node_modules/strapi-geodata/dist/_chunks/Input-CGF4Yw8A.js
++++ b/node_modules/strapi-geodata/dist/_chunks/Input-CGF4Yw8A.js
+@@ -24,10 +24,11 @@ const customIcon = new L__default.default.Icon({
+   shadowAnchor: [12, 41]
+ });
+ const mapProps = {
+-  zoom: 7,
+-  center: [41.9, 12.5],
+-  tileUrl: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+-  tileAttribution: "OSM attribution",
++  zoom: 10,
++  center: [42.45, 9.47],
++  tileUrl: "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetTile&LAYER=GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2&STYLE=normal&TILEMATRIXSET=PM&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&FORMAT=image/png",
++  tileMaxZoom: 19,
++  tileAttribution: "&copy; <a href=\"https://www.ign.fr/\">IGN</a> - G\u00e9oplateforme",
+   tileAccessToken: ""
+ };
+ const Input = (props) => {
+@@ -114,6 +115,7 @@ const Input = (props) => {
+             {
+               attribution: mapProps.tileAttribution,
+               url: mapProps.tileUrl,
++              maxZoom: mapProps.tileMaxZoom,
+               accessToken: mapProps.tileAccessToken
+             }
+           ),
+diff --git a/node_modules/strapi-geodata/dist/_chunks/Input-DOeDXYQ2.mjs b/node_modules/strapi-geodata/dist/_chunks/Input-DOeDXYQ2.mjs
+index a0cb813..2e41eb3 100644
+--- a/node_modules/strapi-geodata/dist/_chunks/Input-DOeDXYQ2.mjs
++++ b/node_modules/strapi-geodata/dist/_chunks/Input-DOeDXYQ2.mjs
+@@ -20,10 +20,11 @@ const customIcon = new L.Icon({
+   shadowAnchor: [12, 41]
+ });
+ const mapProps = {
+-  zoom: 7,
+-  center: [41.9, 12.5],
+-  tileUrl: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+-  tileAttribution: "OSM attribution",
++  zoom: 10,
++  center: [42.45, 9.47],
++  tileUrl: "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetTile&LAYER=GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2&STYLE=normal&TILEMATRIXSET=PM&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&FORMAT=image/png",
++  tileMaxZoom: 19,
++  tileAttribution: "&copy; <a href=\"https://www.ign.fr/\">IGN</a> - G\u00e9oplateforme",
+   tileAccessToken: ""
+ };
+ const Input = (props) => {
+@@ -110,6 +111,7 @@ const Input = (props) => {
+             {
+               attribution: mapProps.tileAttribution,
+               url: mapProps.tileUrl,
++              maxZoom: mapProps.tileMaxZoom,
+               accessToken: mapProps.tileAccessToken
+             }
+           ),
